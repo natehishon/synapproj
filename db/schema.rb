@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_02_12_012717) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "addresses", force: :cascade do |t|
     t.string "street"
     t.string "city"
@@ -26,8 +29,8 @@ ActiveRecord::Schema.define(version: 2019_02_12_012717) do
   end
 
   create_table "people", force: :cascade do |t|
-    t.integer "organization_id"
-    t.integer "address_id"
+    t.bigint "organization_id"
+    t.bigint "address_id"
     t.string "name"
     t.string "job_title"
     t.string "email_address"
